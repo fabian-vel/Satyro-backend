@@ -1,0 +1,4 @@
+{
+  "Select_event_getAll": "SELECT A.id, A.name, A.description, A.start_date, A.end_date,\n       A.location,   A.guest_capacity, A.category, A.created_at,\n       A.updated_at\nFROM event A\nORDER BY A.start_date\nLIMIT ? OFFSET ?;",
+  "Count_event_getAll": "SELECT COUNT(A.id) AS total FROM event A;"
+}

@@ -1,4 +1,4 @@
-package com.personal_project.satyro_backend;
+package com.fabian_velasquez.satyro_backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
