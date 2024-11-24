@@ -1,13 +1,11 @@
-package com.fabian_velasquez.satyro_backend.domain.model;
+package com.fabian_velasquez.satyro_backend.application.dto.request;
 
 import lombok.Data;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
-public class Event {
+public class EventRequest {
     private String id;
     private String name;
     private String description;
@@ -16,6 +14,4 @@ public class Event {
     private String location;
     private int guestCapacity;
     private String category;
-    private Date createdAt;
-    private Date updatedAt;
 }
