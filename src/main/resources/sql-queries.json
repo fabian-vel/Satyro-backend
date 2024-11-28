@@ -1,8 +1,9 @@
 {
-  "Select_event_getAll": "SELECT A.id, A.name, A.description, A.start_date, A.end_date,\n       A.location,   A.guest_capacity, A.category, A.created_at,\n       A.updated_at\nFROM event A\nORDER BY A.start_date\nLIMIT ? OFFSET ?;",
+  "Select_event_getAll": "SELECT \n       A.id AS A_id, \n       A.name AS A_name,\n       A.description AS A_description,\n       A.start_date AS A_start_date,\n       A.end_date AS A_end_date,\n       A.location AS A_location,\n       A.guest_capacity AS A_guest_capacity,\n       A.created_at AS A_created_at,\n       A.updated_at AS A_updated_at,\n       B.id AS B_id,\n       B.master AS B_master,\n       B.data_master AS B_data_master,\n       B.code AS B_code\nFROM event A\n         LEFT JOIN data_master B ON A.category = B.id\nORDER BY A.start_date\nLIMIT ? OFFSET ?;",
   "Count_event_getAll": "SELECT COUNT(A.id) AS total FROM event A;",
   "Insert_event": "INSERT INTO event (id, name, description, start_date, end_date,\n                   location, guest_capacity, category, created_at)\nVALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
   "Update_event": "UPDATE event A\nSET name=?, description=?, start_date=?, end_date=?,\n    location=?, guest_capacity=?, category=?, updated_at=?\nWHERE A.id = ?",
   "Select_event_byId": "SELECT A.id, A.name, A.description, A.start_date, A.end_date,\n       A.location,   A.guest_capacity, A.category, A.created_at,\n       A.updated_at\nFROM event A\nWHERE A.id = ?",
-  "Delete_event": "DELETE FROM event A WHERE A.id=?"
+  "Delete_event": "DELETE FROM event A WHERE A.id=?",
+  "Select_dataMaster_byMaster": "SELECT A.id, A.master, A.data_master, A.code, A.description, A.state, A.created_at, A.updated_at\nFROM data_master A WHERE A.master = ? AND A.state = 'A';"
 }

@@ -30,9 +30,12 @@ public class EventJdbcAdapter implements EventPort {
     @Override
     public List<Event> getAll(PaginatedEventRequest paginatedEventRequest) {
         String sql = sqlQueryUtils.getQuery("Select_event_getAll");
+
+        var limit = paginatedEventRequest.getSize();
+        var offset = paginatedEventRequest.getPage() * paginatedEventRequest.getSize();
+
         return eventMapper.toEventList( jdbcTemplate.query(sql, new EventRowMapper(),
-                paginatedEventRequest.getSize(),
-                paginatedEventRequest.getPage()));
+                limit, offset));
     }
 
     @Override

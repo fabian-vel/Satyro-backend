@@ -2,7 +2,6 @@ package com.fabian_velasquez.satyro_backend.domain.model;
 
 import lombok.Data;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -15,7 +14,7 @@ public class Event {
     private LocalDateTime endDate;
     private String location;
     private int guestCapacity;
-    private String category;
+    private DataMaster category;
     private Date createdAt;
     private Date updatedAt;
 }

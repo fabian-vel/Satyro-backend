@@ -1,4 +1,4 @@
-package com.fabian_velasquez.satyro_backend.infrastructure.adapters.rest.controller_advice;
+package com.fabian_velasquez.satyro_backend.infrastructure.adapters.rest.advice;
 
 import com.fabian_velasquez.satyro_backend.shared.exception.EventException;
 import com.fabian_velasquez.satyro_backend.shared.message.ResponseMessage;
