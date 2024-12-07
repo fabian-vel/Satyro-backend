@@ -17,7 +17,9 @@ public class EventRowMapper implements RowMapper<EventDTO> {
         dto.setName(rs.getString("A_name"));
         dto.setDescription(rs.getString("A_description"));
         dto.setStartDate(UtilDate.convertToLocalDateTime(rs.getTimestamp("A_start_date")));
+        dto.setStartTime(UtilDate.convertToLocalTime(rs.getTime("A_start_time")));
         dto.setEndDate(UtilDate.convertToLocalDateTime(rs.getTimestamp("A_end_date")));
+        dto.setEndTime(UtilDate.convertToLocalTime(rs.getTime("A_end_time")));
         dto.setLocation(rs.getString("A_location"));
         dto.setGuestCapacity(rs.getInt("A_guest_capacity"));
 

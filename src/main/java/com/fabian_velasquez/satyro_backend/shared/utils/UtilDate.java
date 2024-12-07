@@ -1,7 +1,9 @@
 package com.fabian_velasquez.satyro_backend.shared.utils;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -71,4 +73,16 @@ public class UtilDate {
         LocalDateTime localDateTime = getCurrentDateTime();
         return Timestamp.valueOf(localDateTime);
     }
+
+    /**
+     * Convierte un Time a LocalTime en la zona horaria de Colombia.
+     *
+     * @param time Objeto Time a convertir.
+     * @return LocalTime equivalente.
+     */
+
+    public static LocalTime convertToLocalTime(Time time) {
+        return time.toLocalTime();
+    }
+
 }
