@@ -2,7 +2,7 @@ package com.fabian_velasquez.satyro_backend.application.service;
 
 import com.fabian_velasquez.satyro_backend.application.dto.DataMasterDTO;
 import com.fabian_velasquez.satyro_backend.application.dto.request.DataMasterRequest;
-import com.fabian_velasquez.satyro_backend.application.mapper.DataMasterDTOMapper;
+import com.fabian_velasquez.satyro_backend.application.mapper.DataMasterApplicationMapper;
 import com.fabian_velasquez.satyro_backend.application.usecases.DataMasterService;
 import com.fabian_velasquez.satyro_backend.domain.port.DataMasterPort;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +15,10 @@ import java.util.List;
 public class DataMasterApplicationService implements DataMasterService {
 
     private final DataMasterPort dataMasterPort;
-    private final DataMasterDTOMapper dataMasterDTOMapper;
+    private final DataMasterApplicationMapper dataMasterApplicationMapper;
 
     @Override
     public List<DataMasterDTO> getAllDataMasterByMaster(DataMasterRequest dataMasterRequest) {
-        return dataMasterDTOMapper.toDataMasterDTOList(dataMasterPort.getAllByMaster(dataMasterRequest));
+        return dataMasterApplicationMapper.toDataMasterDTOList(dataMasterPort.getAllByMaster(dataMasterRequest));
     }
 }

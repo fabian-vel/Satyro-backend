@@ -2,7 +2,7 @@ package com.fabian_velasquez.satyro_backend.infrastructure.adapters.jdbc;
 
 import com.fabian_velasquez.satyro_backend.application.dto.request.EventRequest;
 import com.fabian_velasquez.satyro_backend.application.dto.request.PaginatedEventRequest;
-import com.fabian_velasquez.satyro_backend.infrastructure.adapters.mapper.EventMapper;
+import com.fabian_velasquez.satyro_backend.infrastructure.adapters.mapper.EventAdapterMapper;
 import com.fabian_velasquez.satyro_backend.infrastructure.adapters.jdbc.row_mapper.EventRowMapper;
 import com.fabian_velasquez.satyro_backend.domain.model.Event;
 import com.fabian_velasquez.satyro_backend.domain.port.EventPort;
@@ -18,13 +18,13 @@ import java.util.List;
 public class EventJdbcAdapter implements EventPort {
 
     private final SqlQueryUtils sqlQueryUtils = SqlQueryUtils.getInstance();
-    private final EventMapper eventMapper;
+    private final EventAdapterMapper eventAdapterMapper;
 
     JdbcTemplate jdbcTemplate;
 
-    public EventJdbcAdapter(DataSource dataSource, EventMapper eventMapper) {
+    public EventJdbcAdapter(DataSource dataSource, EventAdapterMapper eventAdapterMapper) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
-        this.eventMapper = eventMapper;
+        this.eventAdapterMapper = eventAdapterMapper;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class EventJdbcAdapter implements EventPort {
         var limit = paginatedEventRequest.getSize();
         var offset = paginatedEventRequest.getPage() * paginatedEventRequest.getSize();
 
-        return eventMapper.toEventList( jdbcTemplate.query(sql, new EventRowMapper(),
+        return eventAdapterMapper.toEventList( jdbcTemplate.query(sql, new EventRowMapper(),
                 limit, offset));
     }
 
@@ -80,7 +80,8 @@ public class EventJdbcAdapter implements EventPort {
     public Event getById(EventRequest eventRequest) {
         String sql = sqlQueryUtils.getQuery("Select_event_byId");
         try {
-            return eventMapper.toEvent( jdbcTemplate.queryForObject(sql, new EventRowMapper(),
+            return eventAdapterMapper.toEvent(
+                    jdbcTemplate.queryForObject(sql, new EventRowMapper(),
                     eventRequest.getId()));
         }catch (EmptyResultDataAccessException e) {
             return null;

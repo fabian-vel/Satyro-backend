@@ -1,5 +1,6 @@
 package com.fabian_velasquez.satyro_backend.infrastructure.adapters.rest.controller;
 
+import com.fabian_velasquez.satyro_backend.application.dto.EventDTO;
 import com.fabian_velasquez.satyro_backend.application.dto.request.EventRequest;
 import com.fabian_velasquez.satyro_backend.application.dto.request.PaginatedEventRequest;
 import com.fabian_velasquez.satyro_backend.application.dto.response.EventResponse;
@@ -46,5 +47,10 @@ public class EventController {
         return ResponseEntity.ok(message);
     }
 
-
+    @PostMapping("/getById")
+    public ResponseEntity<ResponseMessage<EventDTO>> getEventById(@RequestBody EventRequest eventRequest) {
+        EventDTO result = eventService.getEventById(eventRequest);
+        var message = new ResponseMessage<>(200, "getById, process successfully", result);
+        return ResponseEntity.ok(message);
+    }
 }

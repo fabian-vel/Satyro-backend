@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public interface DataMasterMapper {
+public interface DataMasterAdapterMapper {
     List<DataMaster> toDataMasterList(List<DataMasterDTO> dataMasterDTOListList);
     DataMaster toDataMaster(DataMasterDTO dataMasterDTO);
 }

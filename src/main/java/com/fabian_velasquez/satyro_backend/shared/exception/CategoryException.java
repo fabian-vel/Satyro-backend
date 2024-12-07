@@ -4,24 +4,24 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-public class EventException extends RuntimeException{
+public class CategoryException extends RuntimeException {
 
     private final HttpStatus status;
     private final String message;
 
-    public EventException(String message, HttpStatus status) {
+    public CategoryException(String message, HttpStatus status) {
         super(message);
         this.status = status;
         this.message = message;
     }
 
-    public EventException(String message) {
+    public CategoryException(String message) {
         super(message);
         this.status = HttpStatus.NOT_FOUND;
         this.message = message;
     }
 
-    public EventException() {
+    public CategoryException() {
         super("An unexpected error occurred");
         this.status = HttpStatus.INTERNAL_SERVER_ERROR;
         this.message = "An unexpected error occurred";

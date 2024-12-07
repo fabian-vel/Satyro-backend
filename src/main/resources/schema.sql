@@ -6,7 +6,9 @@ CREATE TABLE IF NOT EXISTS event
     name           VARCHAR(250),
     description    VARCHAR(500),
     start_date     TIMESTAMP,
+    start_time     TIME,
     end_date       TIMESTAMP,
+    end_time       TIME,
     location       VARCHAR(250),
     guest_capacity INTEGER,
     category       VARCHAR(250),
@@ -29,3 +31,16 @@ CREATE TABLE IF NOT EXISTS data_master
 );
 
 COMMENT ON COLUMN data_master.state IS 'A: Activo, I: Inactivo';
+
+CREATE TABLE IF NOT EXISTS category
+(
+    id          VARCHAR(50) NOT NULL,
+    name      VARCHAR(100),
+    description VARCHAR(250),
+    state       VARCHAR(2),
+    created_at  TIMESTAMP,
+    updated_at  TIMESTAMP,
+    CONSTRAINT category_pkey PRIMARY KEY (id)
+    );
+
+COMMENT ON COLUMN category.state IS 'A: Activo, I: Inactivo';

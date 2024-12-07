@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public interface EventMapper {
+public interface EventAdapterMapper {
 
     List<Event> toEventList(List<EventDTO> listEventDTO);
     Event toEvent(EventDTO eventDTO);
