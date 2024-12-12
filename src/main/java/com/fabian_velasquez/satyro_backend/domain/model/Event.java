@@ -17,7 +17,7 @@ public class Event {
     private LocalTime endTime;
     private String location;
     private int guestCapacity;
-    private DataMaster category;
+    private Category category;
     private Date createdAt;
     private Date updatedAt;
 }

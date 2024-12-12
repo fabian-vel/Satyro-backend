@@ -1,6 +1,6 @@
 package com.fabian_velasquez.satyro_backend.application.dto.request;
 
-import com.fabian_velasquez.satyro_backend.application.dto.DataMasterDTO;
+import com.fabian_velasquez.satyro_backend.application.dto.CategoryDTO;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -17,5 +17,5 @@ public class EventRequest {
     private LocalTime endTime;
     private String location;
     private int guestCapacity;
-    private DataMasterDTO category;
+    private CategoryDTO category;
 }

@@ -57,7 +57,7 @@ public class EventJdbcAdapter implements EventPort {
                 event.getEndTime(),
                 event.getLocation(),
                 event.getGuestCapacity(),
-                event.getCategory(),
+                event.getCategory().getId(),
                 event.getCreatedAt()
         );
     }
@@ -74,7 +74,7 @@ public class EventJdbcAdapter implements EventPort {
                 event.getEndTime(),
                 event.getLocation(),
                 event.getGuestCapacity(),
-                event.getCategory(),
+                event.getCategory().getId(),
                 event.getUpdatedAt(),
                 event.getId()
         );

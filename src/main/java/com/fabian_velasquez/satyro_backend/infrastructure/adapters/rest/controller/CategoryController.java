@@ -18,7 +18,7 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @PostMapping({"/getAll"})
+    @GetMapping({"/getAll"})
     public ResponseEntity<ResponseMessage<List<CategoryDTO>>> getAllEvent() {
         List<CategoryDTO> result;
         result = categoryService.getAllCategory();

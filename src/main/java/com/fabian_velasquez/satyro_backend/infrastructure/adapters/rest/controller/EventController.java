@@ -26,7 +26,7 @@ public class EventController {
         return ResponseEntity.ok(message);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/save")
     public ResponseEntity<ResponseMessage<String>> createEvent(@RequestBody EventRequest eventRequest) {
         eventService.createEvent(eventRequest);
         var message = new ResponseMessage<String>(200, "Event created successfully", null);

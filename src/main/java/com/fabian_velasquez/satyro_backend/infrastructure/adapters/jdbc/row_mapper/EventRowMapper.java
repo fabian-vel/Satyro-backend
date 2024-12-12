@@ -1,5 +1,6 @@
 package com.fabian_velasquez.satyro_backend.infrastructure.adapters.jdbc.row_mapper;
 
+import com.fabian_velasquez.satyro_backend.application.dto.CategoryDTO;
 import com.fabian_velasquez.satyro_backend.application.dto.DataMasterDTO;
 import com.fabian_velasquez.satyro_backend.application.dto.EventDTO;
 import com.fabian_velasquez.satyro_backend.shared.utils.UtilDate;
@@ -23,12 +24,11 @@ public class EventRowMapper implements RowMapper<EventDTO> {
         dto.setLocation(rs.getString("A_location"));
         dto.setGuestCapacity(rs.getInt("A_guest_capacity"));
 
-        DataMasterDTO dataMaster = new DataMasterDTO();
-        dataMaster.setId(rs.getString("B_id"));
-        dataMaster.setMaster(rs.getString("B_master"));
-        dataMaster.setDataMasterName(rs.getString("B_data_master"));
-        dataMaster.setCode(rs.getString("B_code"));
-        dto.setCategory(dataMaster);
+        CategoryDTO categoryDTO = new CategoryDTO();
+        categoryDTO.setId(rs.getString("B_id"));
+        categoryDTO.setName(rs.getString("B_name"));
+        categoryDTO.setDescription(rs.getString("B_description"));
+        dto.setCategory(categoryDTO);
 
         return dto;
     }

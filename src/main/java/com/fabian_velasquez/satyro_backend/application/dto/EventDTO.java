@@ -21,5 +21,5 @@ public class EventDTO {
     private LocalTime endTime;
     private String location;
     private int guestCapacity;
-    private DataMasterDTO category;
+    private CategoryDTO category;
 }
